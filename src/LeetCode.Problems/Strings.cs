@@ -131,4 +131,46 @@ public class Strings
 
         return -1;
     }
+
+    /// <summary>
+    /// Reverse Integer
+    /// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880/
+    /// </summary>
+    public int Reverse(int x)
+    {
+        if (x is int.MinValue or int.MaxValue)
+        {
+            return 0;
+        }
+
+        var array = Math.Abs(x).ToString().ToCharArray();
+        for (var i = 0; i < array.Length / 2; i++)
+        {
+            (array[i], array[^(i + 1)]) = (array[^(i + 1)], array[i]);
+        }
+
+        var str = new string(array);
+        const string MAX_POS = "2147483647";
+        const string MAX_NEG = "2147483648";
+
+        if (str.Length == MAX_POS.Length)
+        {
+            switch (x)
+            {
+                case > 0 when str == MAX_POS:
+                    return int.MaxValue;
+                case > 0 when string.Compare(str, MAX_POS, StringComparison.Ordinal) > 0:
+                    return 0;
+
+                case < 0 when str == MAX_NEG:
+                    return int.MinValue;
+                case < 0 when string.Compare(str, MAX_NEG, StringComparison.Ordinal) > 0:
+                    return 0;
+            }
+        }
+
+        var r = int.Parse(array);
+
+        return x > 0 ? r : -r;
+    }
 }

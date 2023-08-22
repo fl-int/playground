@@ -143,4 +143,40 @@ public class StringsTests
 
         Assert.Equal(-1, actual);
     }
+
+    [Fact]
+    public void Reverse1()
+    {
+        var strings = new Strings();
+        var actual = strings.Reverse(123);
+
+        Assert.Equal(321, actual);
+    }
+
+    [Fact]
+    public void Reverse2()
+    {
+        var strings = new Strings();
+        var actual = strings.Reverse(-123);
+
+        Assert.Equal(-321, actual);
+    }
+
+    [Fact]
+    public void Reverse3()
+    {
+        var strings = new Strings();
+        var actual = strings.Reverse(120);
+
+        Assert.Equal(21, actual);
+    }
+
+    [Fact]
+    public void Reverse4()
+    {
+        var strings = new Strings();
+        var actual = strings.Reverse(1534236469);
+
+        Assert.Equal(0, actual);
+    }
 }
