@@ -179,4 +179,41 @@ public class StringsTests
 
         Assert.Equal(0, actual);
     }
+
+
+    [Fact]
+    public void IsAnagram1()
+    {
+        var strings = new Strings();
+        var isAnagram = strings.IsAnagram("anagram", "nagaram");
+
+        Assert.True(isAnagram);
+    }
+
+    [Fact]
+    public void IsAnagram2()
+    {
+        var strings = new Strings();
+        var isAnagram = strings.IsAnagram("cat", "rat");
+
+        Assert.False(isAnagram);
+    }
+
+    [Fact]
+    public void IsAnagram3()
+    {
+        var strings = new Strings();
+        var isAnagram = strings.IsAnagram("a", "ab");
+
+        Assert.False(isAnagram);
+    }
+
+    [Fact]
+    public void IsAnagram4()
+    {
+        var strings = new Strings();
+        var isAnagram = strings.IsAnagram("zlap", "kcqx");
+
+        Assert.False(isAnagram);
+    }
 }

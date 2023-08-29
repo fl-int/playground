@@ -173,4 +173,30 @@ public class Strings
 
         return x > 0 ? r : -r;
     }
+
+    /// <summary>
+    /// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/882/
+    /// </summary>
+    public bool IsAnagram(string s, string t)
+    {
+        const int A_IDX = 'a';
+        const int Z_IDX = 'z';
+        Span<int> counts = stackalloc int[Z_IDX - A_IDX + 1];
+        foreach (var c in s)
+        {
+            counts[c - A_IDX]++;
+        }
+
+        foreach (var c in t)
+        {
+            counts[c - A_IDX]--;
+        }
+
+        foreach (var c in counts)
+        {
+            if (c != 0) return false;
+        }
+
+        return true;
+    }
 }
