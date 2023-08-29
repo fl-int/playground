@@ -216,4 +216,31 @@ public class StringsTests
 
         Assert.False(isAnagram);
     }
+
+    [Fact]
+    public void IsPalindrome1()
+    {
+        var strings = new Strings();
+        var isPalindrome = strings.IsPalindrome("A man, a plan, a canal: Panama");
+
+        Assert.True(isPalindrome);
+    }
+
+    [Fact]
+    public void IsPalindrome2()
+    {
+        var strings = new Strings();
+        var isPalindrome = strings.IsPalindrome("race a car");
+
+        Assert.False(isPalindrome);
+    }
+
+    [Fact]
+    public void IsPalindrome3()
+    {
+        var strings = new Strings();
+        var isPalindrome = strings.IsPalindrome(" ");
+
+        Assert.True(isPalindrome);
+    }
 }

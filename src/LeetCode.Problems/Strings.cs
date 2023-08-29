@@ -199,4 +199,37 @@ public class Strings
 
         return true;
     }
+
+    /// <summary>
+    /// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/
+    /// </summary>
+    public bool IsPalindrome(string s)
+    {
+        var iLeft = 0;
+        var iRight = s.Length - 1;
+        while (iLeft < iRight)
+        {
+            if (!char.IsLetterOrDigit(s[iLeft]))
+            {
+                iLeft++;
+                continue;
+            }
+
+            if (!char.IsLetterOrDigit(s[iRight]))
+            {
+                iRight--;
+                continue;
+            }
+
+            if (char.ToLower(s[iLeft]) != char.ToLower(s[iRight]))
+            {
+                return false;
+            }
+
+            iLeft++;
+            iRight--;
+        }
+
+        return true;
+    }
 }
